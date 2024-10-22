@@ -3,7 +3,7 @@ use core::convert::TryFrom;
 use proptest::prelude::*;
 use rand_core::{CryptoRng, RngCore};
 
-use reddsa::*;
+use ironfish_reddsa::*;
 
 /// A signature test-case, containing signature data and expected validity.
 #[derive(Clone, Debug)]

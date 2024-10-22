@@ -3,7 +3,7 @@ use core::convert::TryFrom;
 #[macro_use]
 extern crate lazy_static;
 
-use reddsa::*;
+use ironfish_reddsa::*;
 
 #[test]
 fn verify_librustzcash_spendauth() {

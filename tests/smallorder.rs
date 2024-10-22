@@ -2,7 +2,7 @@ use core::convert::TryFrom;
 
 use jubjub::{AffinePoint, Fq};
 
-use reddsa::*;
+use ironfish_reddsa::*;
 
 #[test]
 fn identity_publickey_passes() {

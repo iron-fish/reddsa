@@ -1,7 +1,7 @@
 #![cfg(feature = "std")]
 
+use ironfish_reddsa::*;
 use proptest::prelude::*;
-use reddsa::*;
 use std::convert::TryFrom;
 
 proptest! {

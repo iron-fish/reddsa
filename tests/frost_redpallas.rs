@@ -7,7 +7,7 @@ use rand::thread_rng;
 
 use frost_rerandomized::frost_core::{self as frost, Ciphersuite, Group, GroupError};
 
-use reddsa::{
+use ironfish_reddsa::{
     frost::redpallas::{keys::EvenY, PallasBlake2b512},
     orchard,
 };
@@ -31,15 +31,15 @@ fn check_randomized_sign_with_dealer() {
 
     let sig = {
         let bytes: [u8; 64] = group_signature.serialize().unwrap().try_into().unwrap();
-        reddsa::Signature::<orchard::SpendAuth>::from(bytes)
+        ironfish_reddsa::Signature::<orchard::SpendAuth>::from(bytes)
     };
     let pk_bytes = {
         let bytes: [u8; 32] = group_pubkey.serialize().unwrap().try_into().unwrap();
-        reddsa::VerificationKeyBytes::<orchard::SpendAuth>::from(bytes)
+        ironfish_reddsa::VerificationKeyBytes::<orchard::SpendAuth>::from(bytes)
     };
 
     // Check that the verification key is a valid RedDSA verification key.
-    let pub_key = reddsa::VerificationKey::try_from(pk_bytes)
+    let pub_key = ironfish_reddsa::VerificationKey::try_from(pk_bytes)
         .expect("The test verification key to be well-formed.");
 
     // Check that signature validation has the expected result.
@@ -179,7 +179,7 @@ fn check_even_y_reddsa() {
         let min_signers = 3;
         // Generate keys with reexposed reddsa function, which ensures even Y
         let (shares, public_key_package) =
-            reddsa::frost::redpallas::keys::generate_with_dealer::<_>(
+            ironfish_reddsa::frost::redpallas::keys::generate_with_dealer::<_>(
                 max_signers,
                 min_signers,
                 frost::keys::IdentifierList::Default,

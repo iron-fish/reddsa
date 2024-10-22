@@ -5,7 +5,7 @@ use rand::thread_rng;
 
 use frost_rerandomized::frost_core::{Ciphersuite, Group, GroupError};
 
-use reddsa::{frost::redjubjub::JubjubBlake2b512, sapling};
+use ironfish_reddsa::{frost::redjubjub::JubjubBlake2b512, sapling};
 
 #[test]
 fn check_sign_with_dealer() {
@@ -29,15 +29,15 @@ fn check_randomized_sign_with_dealer() {
 
     let sig = {
         let bytes: [u8; 64] = group_signature.serialize().unwrap().try_into().unwrap();
-        reddsa::Signature::<sapling::SpendAuth>::from(bytes)
+        ironfish_reddsa::Signature::<sapling::SpendAuth>::from(bytes)
     };
     let pk_bytes = {
         let bytes: [u8; 32] = group_pubkey.serialize().unwrap().try_into().unwrap();
-        reddsa::VerificationKeyBytes::<sapling::SpendAuth>::from(bytes)
+        ironfish_reddsa::VerificationKeyBytes::<sapling::SpendAuth>::from(bytes)
     };
 
     // Check that the verification key is a valid RedDSA verification key.
-    let pub_key = reddsa::VerificationKey::try_from(pk_bytes)
+    let pub_key = ironfish_reddsa::VerificationKey::try_from(pk_bytes)
         .expect("The test verification key to be well-formed.");
 
     // Check that signature validation has the expected result.

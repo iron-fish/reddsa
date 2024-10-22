@@ -29,7 +29,7 @@ they can proceed to sign messages with FROST.
 use rand::thread_rng;
 use std::collections::BTreeMap;
 
-use reddsa::frost::redjubjub as frost;
+use ironfish_reddsa::frost::redjubjub as frost;
 
 let mut rng = thread_rng();
 

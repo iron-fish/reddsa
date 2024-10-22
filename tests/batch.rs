@@ -2,7 +2,7 @@
 
 use rand::thread_rng;
 
-use reddsa::*;
+use ironfish_reddsa::*;
 
 #[test]
 fn spendauth_batch_verify() {
