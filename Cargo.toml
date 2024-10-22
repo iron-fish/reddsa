@@ -1,9 +1,9 @@
 [package]
-name = "reddsa"
+name = "ironfish-reddsa"
 edition = "2021"
 rust-version = "1.65"
 # Refer to DEVELOPERS.md for guidance on making new releases.
-version = "0.5.1"
+version = "0.1.0"
 authors = [
     "Henry de Valence <hdevalence@hdevalence.ca>",
     "Deirdre Connolly <durumcrustulum@gmail.com>",
@@ -13,7 +13,7 @@ authors = [
 ]
 readme = "README.md"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/ZcashFoundation/reddsa"
+repository = "https://github.com/iron-fish/reddsa"
 categories = ["cryptography", "no-std"]
 keywords = ["cryptography", "crypto", "zcash"]
 description = "A standalone implementation of the RedDSA signature scheme."
